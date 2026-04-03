@@ -1,6 +1,6 @@
 # RDS Parameter Group
 resource "aws_db_parameter_group" "main" {
-  name   = "${var.project_name}-params"
+  name   = "${var.project_name}-${var.environment}-params"
   family = "postgres15"
 
   parameter {

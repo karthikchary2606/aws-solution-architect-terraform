@@ -148,7 +148,7 @@ variable "enable_services" {
   })
   default = {
     vpc        = true
-    rds        = true
+    rds        = false
     ec2        = true
     alb        = true
     monitoring = true
