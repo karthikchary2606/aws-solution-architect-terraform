@@ -1,0 +1,12 @@
+# Local .terraform folder
+.terraform/
+tfplan
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+.terraform.lock.hcl
+.env
+.idea/
+*.swp
+*.swp
