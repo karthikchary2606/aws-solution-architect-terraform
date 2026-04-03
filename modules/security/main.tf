@@ -31,13 +31,15 @@ resource "aws_secretsmanager_secret_version" "db_password" {
   version_stages = ["AWSCURRENT"]
 }
 
-resource "aws_secretsmanager_secret_rotation" "db_password" {
-  secret_id = aws_secretsmanager_secret.db_password.id
-
-  rotation_rules {
-    automatically_after_days = var.secrets_rotation_days
-  }
-}
+# Note: Rotation requires a Lambda function for automatic rotation
+# This is intentionally commented out. To enable, create a Lambda rotation function.
+# resource "aws_secretsmanager_secret_rotation" "db_password" {
+#   secret_id = aws_secretsmanager_secret.db_password.id
+#
+#   rotation_rules {
+#     automatically_after_days = var.secrets_rotation_days
+#   }
+# }
 
 # Secrets Manager secret for JWT
 resource "aws_secretsmanager_secret" "jwt_secret" {
@@ -54,13 +56,15 @@ resource "aws_secretsmanager_secret_version" "jwt_secret" {
   version_stages = ["AWSCURRENT"]
 }
 
-resource "aws_secretsmanager_secret_rotation" "jwt_secret" {
-  secret_id = aws_secretsmanager_secret.jwt_secret.id
-
-  rotation_rules {
-    automatically_after_days = var.secrets_rotation_days
-  }
-}
+# Note: Rotation requires a Lambda function for automatic rotation
+# This is intentionally commented out. To enable, create a Lambda rotation function.
+# resource "aws_secretsmanager_secret_rotation" "jwt_secret" {
+#   secret_id = aws_secretsmanager_secret.jwt_secret.id
+#
+#   rotation_rules {
+#     automatically_after_days = var.secrets_rotation_days
+#   }
+# }
 
 # CloudTrail for audit logging
 resource "aws_cloudtrail" "main" {
@@ -79,7 +83,7 @@ resource "aws_cloudtrail" "main" {
 
     data_resource {
       type   = "AWS::S3::Object"
-      values = ["arn:aws:s3:::*/"]
+      values = ["arn:aws:s3:::*"]
     }
   }
 

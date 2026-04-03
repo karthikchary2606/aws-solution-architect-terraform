@@ -57,7 +57,7 @@ variable "alb_subnet_2_cidr" {
 variable "db_engine_version" {
   description = "PostgreSQL version"
   type        = string
-  default     = "14.9"
+  default     = "14.8"
 }
 
 variable "db_instance_class" {
@@ -131,7 +131,7 @@ variable "jwt_secret" {
   description = "JWT secret key"
   type        = string
   sensitive   = true
-  default     = "your-secret-key-change-in-production"
+  default     = "AbCdEfGhIjKlMnOpQrStUvWxYz1234567890"
 }
 
 # Features - Service Enable/Disable
