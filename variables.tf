@@ -57,7 +57,7 @@ variable "alb_subnet_2_cidr" {
 variable "db_engine_version" {
   description = "PostgreSQL version"
   type        = string
-  default     = "14.7"
+  default     = "15.4"
 }
 
 variable "db_instance_class" {

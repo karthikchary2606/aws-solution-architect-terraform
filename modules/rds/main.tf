@@ -1,7 +1,7 @@
 # RDS Parameter Group
 resource "aws_db_parameter_group" "main" {
   name   = "${var.project_name}-params"
-  family = "postgres14"
+  family = "postgres15"
 
   parameter {
     name  = "log_connections"
@@ -27,7 +27,7 @@ resource "aws_db_parameter_group" "main" {
 resource "aws_db_instance" "main" {
   identifier     = var.db_identifier
   engine         = "postgres"
-  engine_version = "14.7"
+  engine_version = "15.4"
 
   instance_class       = var.db_instance_class
   allocated_storage    = var.db_allocated_storage
