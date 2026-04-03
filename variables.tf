@@ -100,12 +100,13 @@ variable "db_backup_retention_days" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t3.medium"
+  default     = "t3a.medium"
 }
 
 variable "key_pair_name" {
   description = "SSH key pair name"
   type        = string
+  default     = "test-key"
 }
 
 variable "ec2_volume_size" {
